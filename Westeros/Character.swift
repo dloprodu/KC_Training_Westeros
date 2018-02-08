@@ -8,12 +8,14 @@
 
 import Foundation
 
-final class Character {
+final class Person {
     let name: String
     let house: House
     
     private let _alias: String?
     var alias: String {
+        return _alias ?? ""
+        /*
         get {
             if let _alias = _alias {
                 return _alias
@@ -21,6 +23,7 @@ final class Character {
                 return ""
             }
         }
+        */
     }
     
     init(name: String, alias: String, house: House) {

@@ -10,7 +10,7 @@ import XCTest
 
 @testable import Westeros
 
-class CharacterTests: XCTestCase {
+class PersonTests: XCTestCase {
     
     // con ! declara como opcional y al usar la variable la desempaqueta
     // automáticamente (cuidado con esto!)
@@ -29,10 +29,10 @@ class CharacterTests: XCTestCase {
     }
     
     func testCharacterExistence() {
-        let character = Character(name: "Eddard", alias: "Ned", house: starkHouse)
+        let character = Person(name: "Eddard", alias: "Ned", house: starkHouse)
         XCTAssertNotNil(character)
         
-        let aria = Character(name: "Aria", house: starkHouse)
+        let aria = Person(name: "Aria", house: starkHouse)
         XCTAssertNotNil(aria)
     }
     
