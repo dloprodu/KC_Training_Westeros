@@ -13,6 +13,8 @@
 		63813DE5202CF01B00898058 /* HouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DE4202CF01B00898058 /* HouseTests.swift */; };
 		63813DE9202CF1DA00898058 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DE8202CF1DA00898058 /* House.swift */; };
 		63813DEB202CF64600898058 /* Sigil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DEA202CF64600898058 /* Sigil.swift */; };
+		63813DED202CFD8000898058 /* CharacterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DEC202CFD8000898058 /* CharacterTests.swift */; };
+		63813DEF202CFDEC00898058 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DEE202CFDEC00898058 /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		63813DE4202CF01B00898058 /* HouseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTests.swift; sourceTree = "<group>"; };
 		63813DE8202CF1DA00898058 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		63813DEA202CF64600898058 /* Sigil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sigil.swift; sourceTree = "<group>"; };
+		63813DEC202CFD8000898058 /* CharacterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTests.swift; sourceTree = "<group>"; };
+		63813DEE202CFDEC00898058 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				63813DD0202CE53600898058 /* Info.plist */,
 				63813DE8202CF1DA00898058 /* House.swift */,
 				63813DEA202CF64600898058 /* Sigil.swift */,
+				63813DEE202CFDEC00898058 /* Character.swift */,
 			);
 			path = Westeros;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			children = (
 				63813DDB202CE53600898058 /* Info.plist */,
 				63813DE4202CF01B00898058 /* HouseTests.swift */,
+				63813DEC202CFD8000898058 /* CharacterTests.swift */,
 			);
 			path = WesterosTests;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 				63813DEB202CF64600898058 /* Sigil.swift in Sources */,
 				63813DE9202CF1DA00898058 /* House.swift in Sources */,
 				63813DC5202CE53600898058 /* AppDelegate.swift in Sources */,
+				63813DEF202CFDEC00898058 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63813DE5202CF01B00898058 /* HouseTests.swift in Sources */,
+				63813DED202CFD8000898058 /* CharacterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
