@@ -26,15 +26,21 @@ final class Person {
         */
     }
     
-    init(name: String, alias: String, house: House) {
+    init(name: String, alias: String? = nil, house: House) {
         self.name = name
         self._alias = alias
         self.house = house
     }
     
-    init(name: String, house: House) {
-        self.name = name
-        self.house = house
-        self._alias = nil
+    //init(name: String, house: House) {
+    //    self.name = name
+    //    self.house = house
+    //    self._alias = nil
+    //}
+}
+
+extension Person {
+    var fullName: String {
+        return "\(name) \(house.name)"
     }
 }

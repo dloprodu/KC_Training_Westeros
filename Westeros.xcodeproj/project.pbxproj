@@ -14,7 +14,7 @@
 		63813DE9202CF1DA00898058 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DE8202CF1DA00898058 /* House.swift */; };
 		63813DEB202CF64600898058 /* Sigil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DEA202CF64600898058 /* Sigil.swift */; };
 		63813DED202CFD8000898058 /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DEC202CFD8000898058 /* PersonTests.swift */; };
-		63813DEF202CFDEC00898058 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DEE202CFDEC00898058 /* Person.swift */; };
+		63AB2E4F202D0A24004B0BB6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AB2E4E202D0A24004B0BB6 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,7 @@
 		63813DE8202CF1DA00898058 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		63813DEA202CF64600898058 /* Sigil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sigil.swift; sourceTree = "<group>"; };
 		63813DEC202CFD8000898058 /* PersonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
-		63813DEE202CFDEC00898058 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		63AB2E4E202D0A24004B0BB6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +81,11 @@
 		63813DC3202CE53600898058 /* Westeros */ = {
 			isa = PBXGroup;
 			children = (
+				63813DF0202D084B00898058 /* Domain */,
 				63813DC4202CE53600898058 /* AppDelegate.swift */,
 				63813DCB202CE53600898058 /* Assets.xcassets */,
 				63813DCD202CE53600898058 /* LaunchScreen.storyboard */,
 				63813DD0202CE53600898058 /* Info.plist */,
-				63813DE8202CF1DA00898058 /* House.swift */,
-				63813DEA202CF64600898058 /* Sigil.swift */,
-				63813DEE202CFDEC00898058 /* Person.swift */,
 			);
 			path = Westeros;
 			sourceTree = "<group>";
@@ -100,6 +98,16 @@
 				63813DEC202CFD8000898058 /* PersonTests.swift */,
 			);
 			path = WesterosTests;
+			sourceTree = "<group>";
+		};
+		63813DF0202D084B00898058 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				63AB2E4E202D0A24004B0BB6 /* Person.swift */,
+				63813DE8202CF1DA00898058 /* House.swift */,
+				63813DEA202CF64600898058 /* Sigil.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,8 +215,8 @@
 			files = (
 				63813DEB202CF64600898058 /* Sigil.swift in Sources */,
 				63813DE9202CF1DA00898058 /* House.swift in Sources */,
+				63AB2E4F202D0A24004B0BB6 /* Person.swift in Sources */,
 				63813DC5202CE53600898058 /* AppDelegate.swift in Sources */,
-				63813DEF202CFDEC00898058 /* Person.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

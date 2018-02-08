@@ -22,8 +22,6 @@ class HouseTests: XCTestCase {
     func testHouseExistence() {
         let sigil = Sigil(image: UIImage(), description: "Lobo Huargo")
         let stark = House(name: "Stark", sigil: sigil, words: "Se acerca el invierno")
-        // when
-        // then
         XCTAssertNotNil(stark)
     }
     
