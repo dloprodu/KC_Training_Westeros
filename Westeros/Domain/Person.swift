@@ -44,3 +44,24 @@ extension Person {
         return "\(name) \(house.name)"
     }
 }
+
+// MARK: - Proxies
+extension Person {
+    fileprivate var proxy: String {
+        return "\(name) \(alias) \(house.name)"
+    }
+}
+
+// MARK: - Equalable
+extension Person : Equatable {
+    static func ==(lhs: Person, rhs: Person) -> Bool {
+        return lhs.proxy == rhs.proxy
+    }
+}
+
+// MARK: - Hashable
+extension Person : Hashable {
+    public var hashValue: Int {
+        return proxy.hashValue
+    }
+}

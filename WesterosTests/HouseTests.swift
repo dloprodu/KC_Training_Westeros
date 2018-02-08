@@ -11,8 +11,28 @@ import XCTest
 
 class HouseTests: XCTestCase {
     
+    var starkSigil: Sigil!
+    var lannisterSigil: Sigil!
+    
+    var starkHouse: House!
+    var lannisterHouse: House!
+    
+    var robb: Person!
+    var arya: Person!
+    var tyrion: Person!
+    
     override func setUp() {
         super.setUp()
+        
+        starkSigil = Sigil(image: UIImage(), description: "Lobo Huargo")
+        lannisterSigil = Sigil(image: UIImage(), description: "Leon Rampante")
+        
+        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno")
+        lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Oye mi rugido")
+        
+        robb = Person(name: "Robb", alias: "El Joven Lobo", house: starkHouse)
+        arya = Person(name: "Arya", house: starkHouse)
+        tyrion = Person(name: "", alias: "El Enano", house: lannisterHouse)
     }
     
     override func tearDown() {
@@ -20,18 +40,27 @@ class HouseTests: XCTestCase {
     }
     
     func testHouseExistence() {
-        let sigil = Sigil(image: UIImage(), description: "Lobo Huargo")
-        let stark = House(name: "Stark", sigil: sigil, words: "Se acerca el invierno")
-        XCTAssertNotNil(stark)
+        XCTAssertNotNil(starkHouse)
     }
     
     func testSigilExistence() {
-        let starkSigil = Sigil(image: UIImage(), description: "Lobo Huargo")
-        
         XCTAssertNotNil(starkSigil)
+        XCTAssertNotNil(lannisterSigil)
+    }
+    
+    func testAddPersons() {
+        XCTAssertEqual(starkHouse.count, 0)
         
-        let lanisterSigil = Sigil(image: UIImage(), description: "Leon Rampante");
+        starkHouse.add(person: robb)
+        XCTAssertEqual(starkHouse.count, 1)
         
-        XCTAssertNotNil(lanisterSigil)
+        starkHouse.add(person: robb)
+        XCTAssertEqual(starkHouse.count, 1)
+        
+        starkHouse.add(person: arya)
+        XCTAssertEqual(starkHouse.count, 2)
+        
+        starkHouse.add(person: tyrion)
+        XCTAssertEqual(starkHouse.count, 2)
     }
 }
