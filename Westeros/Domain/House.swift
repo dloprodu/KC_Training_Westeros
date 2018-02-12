@@ -11,6 +11,7 @@ import Foundation
 typealias Words = String
 typealias Members = Set<Person>
 
+
 // MARK: - House
 final class House {
     let name: String
@@ -28,6 +29,7 @@ final class House {
     }
 }
 
+// MARK: - Members
 extension House {
     var count: Int {
         return _members.count
@@ -42,8 +44,17 @@ extension House {
     }
 }
 
+// MARK: - Proxy
+extension House {
+    var proxyForEquatable: String {
+        return "\(name) \(words) \(count)"
+    }
+}
+
+
+// MARK: - Equatable
 extension House : Equatable {
     static func ==(lhs: House, rhs: House) -> Bool {
-        return lhs.name == rhs.name
+        return lhs.proxyForEquatable == rhs.proxyForEquatable
     }
 }
