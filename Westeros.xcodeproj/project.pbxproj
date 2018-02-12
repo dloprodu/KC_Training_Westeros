@@ -91,14 +91,13 @@
 		63813DC3202CE53600898058 /* Westeros */ = {
 			isa = PBXGroup;
 			children = (
+				639A09D620323D5300C1A4DF /* Controllers */,
 				639A09D12032397300C1A4DF /* Images */,
 				63813DF0202D084B00898058 /* Domain */,
 				63813DC4202CE53600898058 /* AppDelegate.swift */,
 				63813DCB202CE53600898058 /* Assets.xcassets */,
 				63813DCD202CE53600898058 /* LaunchScreen.storyboard */,
 				63813DD0202CE53600898058 /* Info.plist */,
-				639A09D220323A8D00C1A4DF /* HouseDetailViewController.swift */,
-				639A09D320323A8D00C1A4DF /* HouseDetailViewController.xib */,
 			);
 			path = Westeros;
 			sourceTree = "<group>";
@@ -131,6 +130,15 @@
 				639A09CC203238F600C1A4DF /* targaryenSmall.jpg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		639A09D620323D5300C1A4DF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				639A09D220323A8D00C1A4DF /* HouseDetailViewController.swift */,
+				639A09D320323A8D00C1A4DF /* HouseDetailViewController.xib */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
