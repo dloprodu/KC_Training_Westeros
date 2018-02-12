@@ -22,12 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let starkSigil = Sigil(image: UIImage(named: "codeIsComing.png")!, description: "Lobo Huargo")
-        
         let starkHouse = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno")
         
-        let houseDetailVC = HouseDetailViewController(model: starkHouse)
+        let lannisterSigil = Sigil(image: UIImage(named: "lannister.jpg")!, description: "Leon Rampante")
+        let lannisterHouse = House(name: "Lannisterm", sigil: lannisterSigil, words: "Oye mi rugido")
         
-        window?.rootViewController = houseDetailVC
+        let starkDetailVC = HouseDetailViewController(model: starkHouse)
+        let lannisterDetailVC = HouseDetailViewController(model: lannisterHouse)
+        
+        let tabVC = UITabBarController()
+        tabVC.viewControllers = [
+            starkDetailVC, lannisterDetailVC
+        ]
+        
+        window?.rootViewController = tabVC
         
         return true
     }

@@ -60,5 +60,8 @@ class HouseDetailViewController: UIViewController {
         self.houseNameLabel.text = "House \(self.model.name)"
         self.sigilImageView.image = self.model.sigil.image
         self.wordsLabel.text = self.model.words
+        
+        //self.tabBarItem.image = model.sigil.image
+        self.title = model.name
     }
 }
