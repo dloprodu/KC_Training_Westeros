@@ -23,15 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let houses = Repository.local.houses
         
-        // Detail Views
-        var controllers = [UIViewController]()
-        for house in houses {
-            controllers.append(HouseDetailViewController(model: house).wrappedInNavigation())
-        }
-        
         // Combinadores
         let tabVC = UITabBarController()
-        tabVC.viewControllers = controllers
+        tabVC.viewControllers = houses.map { HouseDetailViewController(model: $0).wrappedInNavigation() }
         
         window?.rootViewController = tabVC
         
