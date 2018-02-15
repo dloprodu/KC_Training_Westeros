@@ -20,6 +20,8 @@ class HouseTests: XCTestCase {
     var robb: Person!
     var arya: Person!
     var tyrion: Person!
+    var cersei: Person!
+    var jaime: Person!
     
     override func setUp() {
         super.setUp()
@@ -27,12 +29,16 @@ class HouseTests: XCTestCase {
         starkSigil = Sigil(image: UIImage(), description: "Lobo Huargo")
         lannisterSigil = Sigil(image: UIImage(), description: "Leon Rampante")
         
-        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno")
-        lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Oye mi rugido")
+        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno", url: URL(string: "http://awoiaf.westeros.org/index.php/House_Stark")!)
+        lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Oye mi rugido", url: URL(string: "http://awoiaf.westeros.org/index.php/House_Lannister")!)
         
         robb = Person(name: "Robb", alias: "El Joven Lobo", house: starkHouse)
         arya = Person(name: "Arya", house: starkHouse)
-        tyrion = Person(name: "", alias: "El Enano", house: lannisterHouse)
+
+        tyrion = Person(name: "Tyrion", alias: "El Enano", house: lannisterHouse)
+        cersei = Person(name: "Cersei", house: lannisterHouse)
+        jaime = Person(name: "Jaime", alias: "El matareyes", house: lannisterHouse)
+        
     }
     
     override func tearDown() {
@@ -62,6 +68,8 @@ class HouseTests: XCTestCase {
         
         starkHouse.add(person: tyrion)
         XCTAssertEqual(starkHouse.count, 2)
+        
+        
     }
     
     func testHouseEquality() {
@@ -69,7 +77,7 @@ class HouseTests: XCTestCase {
         XCTAssertEqual(starkHouse, starkHouse)
         
         // Igualdad
-        let house = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno")
+        let house = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno", url: URL(string: "http://awoiaf.westeros.org/index.php/House_Stark")!)
         XCTAssertEqual(starkHouse, house)
         
         // Desigualdasd
