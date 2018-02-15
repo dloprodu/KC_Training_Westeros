@@ -12,6 +12,7 @@ import WebKit
 class WikiViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     
     // MARK: - Properties
     let model: House
@@ -31,12 +32,19 @@ class WikiViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupUI();
         self.syncModelWithView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - UI
+    func setupUI() {
+        self.activityView.hidesWhenStopped = true
+        self.activityView.startAnimating()
+        self.webView.navigationDelegate = self
     }
     
     // MARK: - Sync
@@ -45,6 +53,12 @@ class WikiViewController: UIViewController {
     }
 }
 
-extension WikiViewController: UIWebViewDelegate {
+extension WikiViewController : WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        activityView.stopAnimating()
+    }
     
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        activityView.stopAnimating()
+    }
 }
