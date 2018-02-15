@@ -61,4 +61,14 @@ extension WikiViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         activityView.stopAnimating()
     }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        switch navigationAction.navigationType {
+        case .formResubmitted, .linkActivated:
+            decisionHandler(.cancel)
+        default:
+            decisionHandler(.allow)
+        }
+    }
 }
