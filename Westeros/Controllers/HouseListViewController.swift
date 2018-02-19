@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol HouseListViewControllerDelegate {
+    // should, will, did
+    func houseListViewController (_ viewController: HouseListViewController, didSelectHouse: House)
+}
+
 class HouseListViewController: UITableViewController {
     
     // MARK: - Properties
     
     let model: [House]
+    var delegate: HouseListViewControllerDelegate?
     
     // MARK: - initialization
     
@@ -65,8 +71,11 @@ class HouseListViewController: UITableViewController {
 
     override func tableView(_ tableview: UITableView, didSelectRowAt: IndexPath) {
         let house = self.model[didSelectRowAt.row]
-        let houseVC = HouseDetailViewController(model: house)
-        self.navigationController?.pushViewController(houseVC, animated: true)
+        
+        //let houseVC = HouseDetailViewController(model: house)
+        //self.navigationController?.pushViewController(houseVC, animated: true)
+        
+        delegate?.houseListViewController(self, didSelectHouse: house)
     }
     
     /*

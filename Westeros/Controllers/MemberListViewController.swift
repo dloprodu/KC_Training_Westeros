@@ -9,7 +9,7 @@
 import UIKit
 
 class MemberListViewController: UITableViewController {
-    
+    // MARK: - Properties
     let model: [Person]
     
     // MARK: - Init

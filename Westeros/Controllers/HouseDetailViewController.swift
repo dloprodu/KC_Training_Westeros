@@ -16,7 +16,7 @@ class HouseDetailViewController: UIViewController {
     @IBOutlet weak var wordsLabel: UILabel!
     
     // MARK: - Properties
-    let model: House
+    var model: House
     
     // MARK: - Initialization
     init(model: House) {
@@ -85,4 +85,12 @@ class HouseDetailViewController: UIViewController {
         let vc = MemberListViewController(model: self.model.membersSorted)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension HouseDetailViewController : HouseListViewControllerDelegate {
+    func houseListViewController(_ viewController: HouseListViewController, didSelectHouse: House) {
+        self.model = didSelectHouse
+        self.syncModelWithView()
+    }
+    
 }

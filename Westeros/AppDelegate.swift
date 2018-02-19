@@ -18,17 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        window?.backgroundColor = .cyan
         window?.makeKeyAndVisible()
         
         let houses = Repository.local.houses
         
         // Combinadores
-        //let tabVC = UITabBarController()
-        //tabVC.viewControllers = houses.map { HouseDetailViewController(model: $0).wrappedInNavigation() }
-        let houseListViewController = HouseListViewController(model: houses)
+        // UISplitViewControllers (master, detail)
+        let houseListVC = HouseListViewController(model: houses)
+        let houseDetailVC = HouseDetailViewController(model: houses.first!)
         
-        window?.rootViewController = houseListViewController.wrappedInNavigation()
+        // Asignamos delegados
+        houseListVC.delegate = houseDetailVC
+        
+        let splitVC = UISplitViewController()
+        splitVC.viewControllers = [
+            houseListVC.wrappedInNavigation(),
+            houseDetailVC.wrappedInNavigation()
+        ]
+        
+        window?.rootViewController = splitVC
         
         return true
     }
