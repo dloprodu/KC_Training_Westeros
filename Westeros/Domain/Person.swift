@@ -50,6 +50,11 @@ extension Person {
     fileprivate var proxy: String {
         return "\(name) \(alias) \(house.name)"
     }
+    
+    
+    var proxyForComparison: String {
+        return "\(fullName)"
+    }
 }
 
 // MARK: - Equalable
@@ -63,5 +68,12 @@ extension Person : Equatable {
 extension Person : Hashable {
     public var hashValue: Int {
         return proxy.hashValue
+    }
+}
+
+// MARK: - Comparable
+extension Person: Comparable {
+    static func <(lhs: Person, rhs: Person) -> Bool {
+        return lhs.proxyForComparison < rhs.proxyForComparison
     }
 }

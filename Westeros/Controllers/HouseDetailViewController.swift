@@ -34,9 +34,6 @@ class HouseDetailViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
-        syncModelWithView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +42,8 @@ class HouseDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupUI()
+        syncModelWithView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -69,13 +68,21 @@ class HouseDetailViewController: UIViewController {
     // MARK: - UI
     func setupUI() {
         let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
+        let membersButton = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
         
-        self.navigationItem.rightBarButtonItem = wikiButton
+        membersButton.isEnabled = self.model.membersSorted.count > 0
+        
+        self.navigationItem.rightBarButtonItems = [membersButton, wikiButton]
     }
     
     // MARK: - Actions
     @objc func displayWiki() {
-        let wikiVC = WikiViewController(model: self.model)
-        self.navigationController?.pushViewController(wikiVC, animated: true)
+        let vc = WikiViewController(model: self.model)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func displayMembers() {
+        let vc = MemberListViewController(model: self.model.membersSorted)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

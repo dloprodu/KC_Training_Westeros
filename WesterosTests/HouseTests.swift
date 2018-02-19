@@ -91,4 +91,10 @@ class HouseTests: XCTestCase {
     func testHouseComparison() {
         XCTAssertLessThan(lannisterHouse, starkHouse)
     }
+    
+    func testHouseReturnsSortedArrayOfMembers() {
+        starkHouse.add(persons: robb, arya)
+        
+        XCTAssertEqual(starkHouse.membersSorted.first?.fullName, arya.fullName)
+    }
 }
