@@ -74,7 +74,7 @@ class HouseListViewController: UITableViewController {
         return cell!
     }
 
-    override func tableView(_ tableview: UITableView, didSelectRowAt: IndexPath) {
+    override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
         let house = self.model[didSelectRowAt.row]
         
         //let houseVC = HouseDetailViewController(model: house)
@@ -86,6 +86,9 @@ class HouseListViewController: UITableViewController {
         let notification = Notification(name: Notification.Name(HouseListViewControllerNotifications.HouseDidChangeNotificationName.rawValue), object: self, userInfo: [HouseListViewControllerNotifications.HouseKey.rawValue: house])
         
         NotificationCenter.default.post(notification)
+        
+        // Guardar las coordenadas (section, row) de la última casa seleccionada
+        saveLastSelectedHouse(at: indexPath.row)
     }
     
     /*
@@ -133,4 +136,10 @@ class HouseListViewController: UITableViewController {
     }
     */
     
+}
+
+extension HouseListViewController {
+    func saveLastSelectedHouse(at row: Int) {
+        
+    }
 }
