@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum HouseListViewControllerNotifications: String {
+    case HouseKey
+    case HouseDidChangeNotificationName
+}
+
 protocol HouseListViewControllerDelegate {
     // should, will, did
     func houseListViewController (_ viewController: HouseListViewController, didSelectHouse: House)
@@ -76,6 +81,11 @@ class HouseListViewController: UITableViewController {
         //self.navigationController?.pushViewController(houseVC, animated: true)
         
         delegate?.houseListViewController(self, didSelectHouse: house)
+        
+        // Mando la misma info a traves de notificaciones
+        let notification = Notification(name: Notification.Name(HouseListViewControllerNotifications.HouseDidChangeNotificationName.rawValue), object: self, userInfo: [HouseListViewControllerNotifications.HouseKey.rawValue: house])
+        
+        NotificationCenter.default.post(notification)
     }
     
     /*
