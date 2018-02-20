@@ -8,12 +8,13 @@
 
 import UIKit
 
-enum HouseListViewControllerNotifications: String {
+enum HouseListViewControllerKeys: String {
     case HouseKey
     case HouseDidChangeNotificationName
+    case LastHouse
 }
 
-protocol HouseListViewControllerDelegate {
+protocol HouseListViewControllerDelegate: class {
     // should, will, did
     func houseListViewController (_ viewController: HouseListViewController, didSelectHouse: House)
 }
@@ -23,7 +24,7 @@ class HouseListViewController: UITableViewController {
     // MARK: - Properties
     
     let model: [House]
-    var delegate: HouseListViewControllerDelegate?
+    weak var delegate: HouseListViewControllerDelegate?
     
     // MARK: - initialization
     
@@ -41,12 +42,21 @@ class HouseListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let lastRow = UserDefaults.standard.integer(forKey: HouseListViewControllerKeys.LastHouse.rawValue)
+        let indexPath = IndexPath(item: lastRow, section: 0)
+        
+        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,7 +85,7 @@ class HouseListViewController: UITableViewController {
     }
 
     override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let house = self.model[didSelectRowAt.row]
+        let house = self.model[indexPath.row]
         
         //let houseVC = HouseDetailViewController(model: house)
         //self.navigationController?.pushViewController(houseVC, animated: true)
@@ -83,7 +93,7 @@ class HouseListViewController: UITableViewController {
         delegate?.houseListViewController(self, didSelectHouse: house)
         
         // Mando la misma info a traves de notificaciones
-        let notification = Notification(name: Notification.Name(HouseListViewControllerNotifications.HouseDidChangeNotificationName.rawValue), object: self, userInfo: [HouseListViewControllerNotifications.HouseKey.rawValue: house])
+        let notification = Notification(name: Notification.Name(HouseListViewControllerKeys.HouseDidChangeNotificationName.rawValue), object: self, userInfo: [HouseListViewControllerKeys.HouseKey.rawValue: house])
         
         NotificationCenter.default.post(notification)
         
@@ -140,6 +150,13 @@ class HouseListViewController: UITableViewController {
 
 extension HouseListViewController {
     func saveLastSelectedHouse(at row: Int) {
-        
+        let defaults = UserDefaults.standard
+        defaults.set(row, forKey: HouseListViewControllerKeys.LastHouse.rawValue)
+        defaults.synchronize()
+    }
+    
+    func lastSelectedHouse() -> House {
+        let row = UserDefaults.standard.integer(forKey: HouseListViewControllerKeys.LastHouse.rawValue)
+        return model[row]
     }
 }

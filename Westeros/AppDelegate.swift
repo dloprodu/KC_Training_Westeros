@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Combinadores
         // UISplitViewControllers (master, detail)
         let houseListVC = HouseListViewController(model: houses)
-        let houseDetailVC = HouseDetailViewController(model: houses.first!)
+        let houseDetailVC = HouseDetailViewController(model: houseListVC.lastSelectedHouse())
         
         // Asignamos delegados
         houseListVC.delegate = houseDetailVC

@@ -39,7 +39,7 @@ class WikiViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name( HouseListViewControllerNotifications.HouseDidChangeNotificationName.rawValue ), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name( HouseListViewControllerKeys.HouseDidChangeNotificationName.rawValue ), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,7 +71,7 @@ class WikiViewController: UIViewController {
             return
         }
         
-        guard let house = info[HouseListViewControllerNotifications.HouseKey.rawValue] as? House else {
+        guard let house = info[HouseListViewControllerKeys.HouseKey.rawValue] as? House else {
             return
         }
         
