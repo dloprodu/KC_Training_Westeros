@@ -63,14 +63,14 @@ class HouseDetailViewController: UIViewController {
         self.houseNameLabel.text = "House \(self.model.name)"
         self.sigilImageView.image = self.model.sigil.image
         self.wordsLabel.text = self.model.words
+        
+        self.navigationItem.rightBarButtonItems?.first?.isEnabled = self.model.membersSorted.count > 0
     }
     
     // MARK: - UI
     func setupUI() {
         let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
         let membersButton = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
-        
-        membersButton.isEnabled = self.model.membersSorted.count > 0
         
         self.navigationItem.rightBarButtonItems = [membersButton, wikiButton]
     }
