@@ -9,34 +9,21 @@
 import Foundation
 
 final class Person {
+    let id: Int
     let name: String
     let house: House
     
     private let _alias: String?
     var alias: String {
         return _alias ?? ""
-        /*
-        get {
-            if let _alias = _alias {
-                return _alias
-            } else {
-                return ""
-            }
-        }
-        */
     }
     
-    init(name: String, alias: String? = nil, house: House) {
+    init(id: Int, name: String, alias: String? = nil, house: House) {
+        self.id = id
         self.name = name
         self._alias = alias
         self.house = house
     }
-    
-    //init(name: String, house: House) {
-    //    self.name = name
-    //    self.house = house
-    //    self._alias = nil
-    //}
 }
 
 extension Person {
@@ -47,10 +34,9 @@ extension Person {
 
 // MARK: - Proxies
 extension Person {
-    fileprivate var proxy: String {
-        return "\(name) \(alias) \(house.name)"
+    fileprivate var proxy: Int {
+        return id
     }
-    
     
     var proxyForComparison: String {
         return "\(fullName)"

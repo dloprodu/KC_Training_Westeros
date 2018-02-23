@@ -14,6 +14,7 @@ typealias Members = Set<Person>
 
 // MARK: - House
 final class House {
+    let id: Int
     let name: String
     let sigil: Sigil
     let words: Words
@@ -21,7 +22,8 @@ final class House {
     
     private var _members: Members
     
-    init(name: String, sigil: Sigil, words: Words, url: URL) {
+    init(id: Int, name: String, sigil: Sigil, words: Words, url: URL) {
+        self.id = id
         self.name = name
         self.sigil = sigil
         self.words = words
@@ -50,18 +52,14 @@ extension House {
     }
     
     func add(persons: Person...) {
-        // Aquí, persons es de tipo [Person]
-        //for person in persons {
-        //    add(person: person)
-        //}
         persons.forEach { add(person: $0) }
     }
 }
 
 // MARK: - Proxy
 extension House {
-    var proxyForEquatable: String {
-        return "\(name) \(words) \(count)"
+    var proxy: Int {
+        return id
     }
     
     var proxyForComparison: String {
@@ -72,14 +70,14 @@ extension House {
 // MARK: - Equatable
 extension House : Equatable {
     static func ==(lhs: House, rhs: House) -> Bool {
-        return lhs.proxyForEquatable == rhs.proxyForEquatable
+        return lhs.proxy == rhs.proxy
     }
 }
 
 // MARK: - Hashable
 extension House : Hashable {
     public var hashValue: Int {
-        return proxyForEquatable.hashValue
+        return proxy.hashValue
     }
 }
 

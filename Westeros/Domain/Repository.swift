@@ -47,27 +47,27 @@ final class LocalFactory: HouseFactory {
         ]
         
         self._houses = [
-            HouseKey.stark:     House(name: "Stark", sigil: _sigils[HouseKey.stark]!, words: "Winter is Coming", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!),
-            HouseKey.lannister: House(name: "Lannister", sigil: _sigils[HouseKey.lannister]!, words: "Hear Me Roar!", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!),
-            HouseKey.targaryen: House(name: "Targarien", sigil: _sigils[HouseKey.targaryen]!, words: "Fire and Blood", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Targaryen")!),
-            HouseKey.bolton:    House(name: "Bolton", sigil: _sigils[HouseKey.bolton]!, words: "Our Blades Are Sharp", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Bolton")!),
-            HouseKey.tyrrel:    House(name: "Tyrrel", sigil: _sigils[HouseKey.tyrrel]!, words: "Growing Strong", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Tyrell")!),
-            HouseKey.baratheon: House(name: "Baratheon", sigil: _sigils[HouseKey.baratheon]!, words: "Ours is the Fury", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Baratheon")!),
-            HouseKey.martell:   House(name: "Martell", sigil: _sigils[HouseKey.martell]!, words: "Unbowed, Unbent, Unbroken", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Martell")!),
+            HouseKey.stark:     House(id: 1, name: "Stark", sigil: _sigils[HouseKey.stark]!, words: "Winter is Coming", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!),
+            HouseKey.lannister: House(id: 2, name: "Lannister", sigil: _sigils[HouseKey.lannister]!, words: "Hear Me Roar!", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!),
+            HouseKey.targaryen: House(id: 3, name: "Targarien", sigil: _sigils[HouseKey.targaryen]!, words: "Fire and Blood", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Targaryen")!),
+            HouseKey.bolton:    House(id: 4, name: "Bolton", sigil: _sigils[HouseKey.bolton]!, words: "Our Blades Are Sharp", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Bolton")!),
+            HouseKey.tyrrel:    House(id: 5, name: "Tyrrel", sigil: _sigils[HouseKey.tyrrel]!, words: "Growing Strong", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Tyrell")!),
+            HouseKey.baratheon: House(id: 6, name: "Baratheon", sigil: _sigils[HouseKey.baratheon]!, words: "Ours is the Fury", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Baratheon")!),
+            HouseKey.martell:   House(id: 7, name: "Martell", sigil: _sigils[HouseKey.martell]!, words: "Unbowed, Unbent, Unbroken", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Martell")!),
         ]
         
-        let robb = Person(name: "Robb", alias: "El Joven Lobo", house: _houses[HouseKey.stark]!)
-        let arya = Person(name: "Arya", house: _houses[HouseKey.stark]!)
+        let robb = Person(id: 1, name: "Robb", alias: "El Joven Lobo", house: _houses[HouseKey.stark]!)
+        let arya = Person(id: 2, name: "Arya", house: _houses[HouseKey.stark]!)
         
         _houses[HouseKey.stark]?.add(persons: robb, arya)
         
-        let tyrion = Person(name: "Tyrion", alias: "El Enano", house: _houses[HouseKey.lannister]!)
-        let cersei = Person(name: "Cersei", house: _houses[HouseKey.lannister]!)
-        let jaime = Person(name: "Jaime", alias: "El matareyes", house: _houses[HouseKey.lannister]!)
+        let tyrion = Person(id: 3, name: "Tyrion", alias: "El Enano", house: _houses[HouseKey.lannister]!)
+        let cersei = Person(id: 4, name: "Cersei", house: _houses[HouseKey.lannister]!)
+        let jaime = Person(id: 5, name: "Jaime", alias: "El matareyes", house: _houses[HouseKey.lannister]!)
         
         _houses[HouseKey.lannister]?.add(persons: tyrion, cersei, jaime)
         
-        let dani = Person(name: "Daenerys", alias: "Madre de Dragones", house: _houses[HouseKey.targaryen]!)
+        let dani = Person(id: 6, name: "Daenerys", alias: "Madre de Dragones", house: _houses[HouseKey.targaryen]!)
         
         _houses[HouseKey.targaryen]?.add(persons: dani)
     }
