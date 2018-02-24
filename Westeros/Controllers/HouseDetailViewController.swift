@@ -64,7 +64,7 @@ class HouseDetailViewController: UIViewController {
         self.sigilImageView.image = self.model.sigil.image
         self.wordsLabel.text = self.model.words
         
-        self.navigationItem.rightBarButtonItems?.first?.isEnabled = self.model.membersSorted.count > 0
+        self.navigationItem.rightBarButtonItems?.first?.isEnabled = self.model.members.count > 0
     }
     
     // MARK: - UI
@@ -82,7 +82,7 @@ class HouseDetailViewController: UIViewController {
     }
     
     @objc func displayMembers() {
-        let vc = MemberListViewController(model: self.model.membersSorted)
+        let vc = MemberListViewController(model: self.model.members)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

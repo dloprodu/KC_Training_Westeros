@@ -8,17 +8,42 @@
 
 import Foundation
 
+typealias Episodes = Set<Episode>
+
 final class Season {
     let id: Int
     let name: String
     let releaseDate: Date
-    let episodes: [Episode]
+    var _episodes: Episodes
     
     init(id: Int, name: String, date: Date) {
         self.id = id
         self.name = name
         self.releaseDate = date
-        self.episodes = [Episode]()
+        self._episodes = Episodes()
+    }
+}
+
+// MARK: - Members
+extension Season {
+    var count: Int {
+        return episodes.count
+    }
+    
+    var episodes: [Episode] {
+        return self._episodes.sorted()
+    }
+    
+    func add(episode: Episode) {
+        guard episode.season == self else {
+            return
+        }
+        
+        self._episodes.insert(episode)
+    }
+    
+    func add(episodes: Episode...) {
+        episodes.forEach { add(episode: $0) }
     }
 }
 

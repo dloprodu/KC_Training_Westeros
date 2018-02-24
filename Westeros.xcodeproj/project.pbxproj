@@ -10,6 +10,7 @@
 		631E34E8203B69F100581244 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E34E6203B69F100581244 /* MemberListViewController.swift */; };
 		631E34E9203B69F100581244 /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631E34E7203B69F100581244 /* MemberListViewController.xib */; };
 		637890BE2040C32D006E3732 /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637890BD2040C32D006E3732 /* EpisodeTests.swift */; };
+		637890C02040CFC8006E3732 /* RepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637890BF2040CFC8006E3732 /* RepositoryFactory.swift */; };
 		63813DC5202CE53600898058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DC4202CE53600898058 /* AppDelegate.swift */; };
 		63813DCC202CE53600898058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63813DCB202CE53600898058 /* Assets.xcassets */; };
 		63813DCF202CE53600898058 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63813DCD202CE53600898058 /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		631E34E6203B69F100581244 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
 		631E34E7203B69F100581244 /* MemberListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
 		637890BD2040C32D006E3732 /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
+		637890BF2040CFC8006E3732 /* RepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryFactory.swift; sourceTree = "<group>"; };
 		63813DC1202CE53600898058 /* Westeros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Westeros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63813DC4202CE53600898058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63813DCB202CE53600898058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				6383D95A2034D4080042281F /* Repository.swift */,
 				63ADB30C203E2E8400BCD94C /* Season.swift */,
 				63ADB30E203E2EA200BCD94C /* Episode.swift */,
+				637890BF2040CFC8006E3732 /* RepositoryFactory.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				6383D95E20362B8E0042281F /* WikiViewController.swift in Sources */,
 				63813DC5202CE53600898058 /* AppDelegate.swift in Sources */,
 				6383D962203645330042281F /* HouseListViewController.swift in Sources */,
+				637890C02040CFC8006E3732 /* RepositoryFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

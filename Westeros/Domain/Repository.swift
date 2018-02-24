@@ -13,30 +13,14 @@ final class Repository {
     static let local = LocalFactory()
 }
 
-protocol HouseFactory {
-    typealias Filter = (House) -> Bool
-    
-    var houses: [House] { get }
-    func house(name: String) -> House?
-    func houses(filteredBy: Filter) -> [House]
-}
-
-enum HouseKey : String {
-    case targaryen
-    case stark
-    case lannister
-    case tyrrel
-    case baratheon
-    case bolton
-    case martell
-}
-
-final class LocalFactory: HouseFactory {
+final class LocalFactory: RepositoryFactory {
     private let _sigils: [HouseKey: Sigil]
     private let _houses: [HouseKey: House]
+    private let _seasons: [Season]
     
     init() {
-       self._sigils = [
+        // Sigils
+        self._sigils = [
             HouseKey.targaryen: Sigil(image: #imageLiteral(resourceName: "targaryen.png"), description: "Sable, a dragon thrice-headed gules"),
             HouseKey.stark:     Sigil(image: #imageLiteral(resourceName: "stark.png"), description: "A running grey direwolf, on an ice-white field"),
             HouseKey.baratheon: Sigil(image: #imageLiteral(resourceName: "baratheon.png"), description: "A black crowned stag, on a gold field"),
@@ -46,6 +30,7 @@ final class LocalFactory: HouseFactory {
             HouseKey.martell:   Sigil(image: #imageLiteral(resourceName: "martell.png"), description: "A gold spear piercing a red sun on an orange field")
         ]
         
+        // Houses
         self._houses = [
             HouseKey.stark:     House(id: 1, name: "Stark", sigil: _sigils[HouseKey.stark]!, words: "Winter is Coming", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!),
             HouseKey.lannister: House(id: 2, name: "Lannister", sigil: _sigils[HouseKey.lannister]!, words: "Hear Me Roar!", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!),
@@ -56,6 +41,7 @@ final class LocalFactory: HouseFactory {
             HouseKey.martell:   House(id: 7, name: "Martell", sigil: _sigils[HouseKey.martell]!, words: "Unbowed, Unbent, Unbroken", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Martell")!),
         ]
         
+        // Members
         let robb = Person(id: 1, name: "Robb", alias: "El Joven Lobo", house: _houses[HouseKey.stark]!)
         let arya = Person(id: 2, name: "Arya", house: _houses[HouseKey.stark]!)
         
@@ -70,6 +56,9 @@ final class LocalFactory: HouseFactory {
         let dani = Person(id: 6, name: "Daenerys", alias: "Madre de Dragones", house: _houses[HouseKey.targaryen]!)
         
         _houses[HouseKey.targaryen]?.add(persons: dani)
+        
+        // Seasons
+        _seasons = [Season]()
     }
     
     var houses: [House] {
@@ -80,7 +69,19 @@ final class LocalFactory: HouseFactory {
         return houses.filter{ $0.name.uppercased() == name.uppercased() }.first
     }
 
-    func houses(filteredBy: Filter) -> [House] {
+    func houses(filteredBy: FilterHouse) -> [House] {
         return houses.filter(filteredBy)
+    }
+    
+    var seasons: [Season] {
+        return _seasons;
+    }
+    
+    func season(name: String) -> Season? {
+        return seasons.filter{ $0.name.uppercased() == name.uppercased() }.first
+    }
+    
+    func seasons(filteredBy: FilterSeason) -> [Season] {
+        return seasons.filter(filteredBy)
     }
 }
