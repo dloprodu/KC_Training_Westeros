@@ -6,6 +6,7 @@
 //  Copyright © 2018 David López Rodriguez. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 typealias Episodes = Set<Episode>
@@ -14,12 +15,14 @@ final class Season {
     let id: Int
     let name: String
     let releaseDate: Date
+    let image: UIImage
     var _episodes: Episodes
     
-    init(id: Int, name: String, date: Date) {
+    init(id: Int, name: String, date: Date, image: UIImage) {
         self.id = id
         self.name = name
         self.releaseDate = date
+        self.image = image
         self._episodes = Episodes()
     }
 }

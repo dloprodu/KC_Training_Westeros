@@ -19,6 +19,8 @@ final class LocalFactory: RepositoryFactory {
     private let _seasons: [Season]
     
     init() {
+        let loremipum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        
         // Sigils
         self._sigils = [
             HouseKey.targaryen: Sigil(image: #imageLiteral(resourceName: "targaryen.png"), description: "Sable, a dragon thrice-headed gules"),
@@ -63,66 +65,73 @@ final class LocalFactory: RepositoryFactory {
         let season1 = Season(
             id: 1,
             name: "Season 1",
-            date: formatter.date(from: "2011-04-17 00:00:00")!)
+            date: formatter.date(from: "2011-04-17 00:00:00")!,
+            image: #imageLiteral(resourceName: "season-1.jpg"))
         let season2 = Season(
             id: 2,
             name: "Season 2",
-            date: formatter.date(from: "2012-04-01 00:00:00")!)
+            date: formatter.date(from: "2012-04-01 00:00:00")!,
+            image: #imageLiteral(resourceName: "season-2.jpg"))
         let season3 = Season(
             id: 3,
             name: "Season 3",
-            date: formatter.date(from: "2013-03-31 00:00:00")!)
+            date: formatter.date(from: "2013-03-31 00:00:00")!,
+            image: #imageLiteral(resourceName: "season-3.jpg"))
         let season4 = Season(
             id: 4,
             name: "Season 4",
-            date: formatter.date(from: "2014-04-06 00:00:00")!)
+            date: formatter.date(from: "2014-04-06 00:00:00")!,
+            image: #imageLiteral(resourceName: "season-4.jpg"))
         let season5 = Season(
             id: 5,
             name: "Season 5",
-            date: formatter.date(from: "2015-04-12 00:00:00")!)
+            date: formatter.date(from: "2015-04-12 00:00:00")!,
+            image: #imageLiteral(resourceName: "season-5.jpg"))
         let season6 = Season(
             id: 6,
             name: "Season 6",
-            date: formatter.date(from: "2016-04-24 00:00:00")!)
+            date: formatter.date(from: "2016-04-24 00:00:00")!,
+            image: #imageLiteral(resourceName: "season-6.jpg"))
         let season7 = Season(
             id: 7,
             name: "Season 7",
-            date: formatter.date(from: "2017-07-16 00:00:00")!)
+            date: formatter.date(from: "2017-07-16 00:00:00")!,
+            image: #imageLiteral(resourceName: "season-7.jpg"))
         
         season1.add(episodes:
-            Episode(id: 1, title: "Winter Is Coming", date: formatter.date(from: "2011-04-17 00:00:00")!, season: season1),
-            Episode(id: 2, title: "The Kingsroad", date: formatter.date(from: "2011-04-24 00:00:00")!, season: season1),
-            Episode(id: 3, title: "Lord Snow", date: formatter.date(from: "2011-05-01 00:00:00")!, season: season1))
+            Episode(id: 1, title: "Winter Is Coming", summary: loremipum, date: formatter.date(from: "2011-04-17 00:00:00")!, season: season1),
+            Episode(id: 2, title: "The Kingsroad", summary: loremipum, date: formatter.date(from: "2011-04-24 00:00:00")!, season: season1),
+            Episode(id: 3, title: "Lord Snow", summary: loremipum, date: formatter.date(from: "2011-05-01 00:00:00")!, season: season1))
         
         season2.add(episodes:
-            Episode(id: 21, title: "The North Remembers", date: formatter.date(from: "2012-04-01 00:00:00")!, season: season2),
-            Episode(id: 22, title: "The Night Lands", date: formatter.date(from: "2012-04-08 00:00:00")!, season: season2),
-            Episode(id: 23, title: "What Is Dead May Never Die", date: formatter.date(from: "2012-04-15 00:00:00")!, season: season2))
+            Episode(id: 21, title: "The North Remembers", summary: loremipum, date: formatter.date(from: "2012-04-01 00:00:00")!, season: season2),
+            Episode(id: 22, title: "The Night Lands", summary: loremipum, date: formatter.date(from: "2012-04-08 00:00:00")!, season: season2),
+            Episode(id: 23, title: "What Is Dead May Never Die", summary: loremipum, date: formatter.date(from: "2012-04-15 00:00:00")!, season: season2))
         
         season3.add(episodes:
-            Episode(id: 31, title: "Valar Dohaeris", date: formatter.date(from: "2013-03-31 00:00:00")!, season: season3),
-            Episode(id: 32, title: "Dark Wings, Dark Words", date: formatter.date(from: "013-04-07 00:00:00")!, season: season3),
-            Episode(id: 33, title: "Walk of Punishment", date: formatter.date(from: "2013-04-14 00:00:00")!, season: season3))
+            Episode(id: 31, title: "Valar Dohaeris", summary: loremipum, date: formatter.date(from: "2013-03-31 00:00:00")!, season: season3),
+            Episode(id: 32, title: "Dark Wings, Dark Words", summary: loremipum, date: formatter.date(from: "013-04-07 00:00:00")!, season: season3),
+            Episode(id: 33, title: "Walk of Punishment", summary: loremipum, date: formatter.date(from: "2013-04-14 00:00:00")!, season: season3))
         
         season4.add(episodes:
-            Episode(id: 41, title: "Two Swords", date: formatter.date(from: "2014-04-06 00:00:00")!, season: season4),
-            Episode(id: 42, title: "The Lion and the Rose", date: formatter.date(from: "2014-04-13 00:00:00")!, season: season4),
-            Episode(id: 43, title: "Breaker of Chains", date: formatter.date(from: "2014-04-20 00:00:00")!, season: season4))
+            Episode(id: 41, title: "Two Swords", summary: loremipum, date: formatter.date(from: "2014-04-06 00:00:00")!, season: season4),
+            Episode(id: 42, title: "The Lion and the Rose", summary: loremipum, date: formatter.date(from: "2014-04-13 00:00:00")!, season: season4),
+            Episode(id: 43, title: "Breaker of Chains", summary: loremipum, date: formatter.date(from: "2014-04-20 00:00:00")!, season: season4))
         
         season5.add(episodes:
-            Episode(id: 51, title: "The Wars to Come", date: formatter.date(from: "2015-04-12 00:00:00")!, season: season5),
-            Episode(id: 52, title: "The House of Black and White", date: formatter.date(from: "2015-04-19 00:00:00")!, season: season5),
-            Episode(id: 53, title: "High Sparrow", date: formatter.date(from: "2015-04-26 00:00:00")!, season: season5))
+            Episode(id: 51, title: "The Wars to Come", summary: loremipum, date: formatter.date(from: "2015-04-12 00:00:00")!, season: season5),
+            Episode(id: 52, title: "The House of Black and White", summary: loremipum, date: formatter.date(from: "2015-04-19 00:00:00")!, season: season5),
+            Episode(id: 53, title: "High Sparrow", summary: loremipum, date: formatter.date(from: "2015-04-26 00:00:00")!, season: season5))
         
         season6.add(episodes:
-            Episode(id: 61, title: "The Red Woman", date: formatter.date(from: "2016-04-24 00:00:00")!, season: season6),
-            Episode(id: 62, title: "Home", date: formatter.date(from: "2016-05-01 00:00:00")!, season: season6),
-            Episode(id: 63, title: "Oathbreaker", date: formatter.date(from: "2016-05-08 00:00:00")!, season: season6))
+            Episode(id: 61, title: "The Red Woman", summary: loremipum, date: formatter.date(from: "2016-04-24 00:00:00")!, season: season6),
+            Episode(id: 62, title: "Home", summary: loremipum, date: formatter.date(from: "2016-05-01 00:00:00")!, season: season6),
+            Episode(id: 63, title: "Oathbreaker", summary: loremipum, date: formatter.date(from: "2016-05-08 00:00:00")!, season: season6))
         
         season7.add(episodes:
-            Episode(id: 71, title: "2016-05-08 00:00:00", date: formatter.date(from: "2017-07-16 00:00:00")!, season: season7),
-            Episode(id: 72, title: "Stormborn", date: formatter.date(from: "2017-07-23 00:00:00")!, season: season7),
-            Episode(id: 73, title: "The Queen's Justice", date: formatter.date(from: "2017-07-30 00:00:00")!, season: season7))
+            Episode(id: 71, title: "Dragonstone", summary: loremipum, date: formatter.date(from: "2017-07-16 00:00:00")!, season: season7),
+            Episode(id: 72, title: "Stormborn", summary: loremipum, date: formatter.date(from: "2017-07-23 00:00:00")!, season: season7),
+            Episode(id: 73, title: "The Queen's Justice", summary: loremipum, date: formatter.date(from: "2017-07-30 00:00:00")!, season: season7))
         
         _seasons = [season1, season2, season3, season4, season5, season6, season7]
     }

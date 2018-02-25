@@ -6,6 +6,7 @@
 //  Copyright © 2018 David López Rodriguez. All rights reserved.
 //
 
+import UIKit
 import XCTest
 
 @testable import Westeros
@@ -22,8 +23,8 @@ class SeasonTests: XCTestCase {
         formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        season1 = Season(id: 1, name: "Season 1", date: formatter.date(from: "2011-01-01 00:00:00")!)
-        season2 = Season(id: 2, name: "Season 2", date: formatter.date(from: "2012-01-01 00:00:00")!)
+        season1 = Season(id: 1, name: "Season 1", date: formatter.date(from: "2011-01-01 00:00:00")!, image: UIImage())
+        season2 = Season(id: 2, name: "Season 2", date: formatter.date(from: "2012-01-01 00:00:00")!, image: UIImage())
     }
     
     override func tearDown() {
@@ -39,7 +40,7 @@ class SeasonTests: XCTestCase {
         XCTAssertEqual(season1, season1)
         
         // Igualdad
-        let season = Season(id: 1, name: "Season 1", date: formatter.date(from: "2011-01-01 00:00:00")!)
+        let season = Season(id: 1, name: "Season 1", date: formatter.date(from: "2011-01-01 00:00:00")!, image: UIImage())
         XCTAssertEqual(season1, season)
         
         // Desigualdasd
