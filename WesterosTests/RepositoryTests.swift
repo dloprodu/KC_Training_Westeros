@@ -48,4 +48,19 @@ class RepositoryTests: XCTestCase {
         let filtered = Repository.local.houses(filteredBy: { $0.words.contains("Winter") })
         XCTAssertEqual(filtered.count, 1)
     }
+    
+    func testSeasonFiltering() {
+        let filtered = Repository.local.seasons(filteredBy: { $0.name.contains("1") })
+        XCTAssertEqual(filtered.count, 1)
+    }
+    
+    func testSeasonAtLeastOnce() {
+        XCTAssertGreaterThan(Repository.local.seasons.count, 0)
+    }
+    
+    func testSeasonAtLeastOneEpisode() {
+        for season in Repository.local.seasons {
+            XCTAssertGreaterThan(season.episodes.count, 0)
+        }
+    }
 }

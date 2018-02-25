@@ -67,6 +67,13 @@ extension House {
     }
 }
 
+// MARK: - CustomStringConvertible
+extension House : CustomStringConvertible {
+    var description: String {
+        return "House \(name)"
+    }
+}
+
 // MARK: - Equatable
 extension House : Equatable {
     static func ==(lhs: House, rhs: House) -> Bool {

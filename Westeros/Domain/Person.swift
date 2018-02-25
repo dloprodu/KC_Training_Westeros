@@ -43,6 +43,13 @@ extension Person {
     }
 }
 
+// MARK: - CustomStringConvertible
+extension Person : CustomStringConvertible {
+    var description: String {
+        return "\(fullName)"
+    }
+}
+
 // MARK: - Equalable
 extension Person : Equatable {
     static func ==(lhs: Person, rhs: Person) -> Bool {
