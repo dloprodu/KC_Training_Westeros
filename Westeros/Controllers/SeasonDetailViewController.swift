@@ -9,18 +9,26 @@
 import UIKit
 
 class SeasonDetailViewController: UIViewController {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var seasonNameLabel: UILabel!
+    @IBOutlet weak var seasonDateLabel: UILabel!
+    @IBOutlet weak var seasonEpisodesLabel: UILabel!
+    @IBOutlet weak var seasonImageView: UIImageView!
+    
     // MARK: - Properties
     
+    let formatter: DateFormatter
     var model: Season
     
     // MARK: - Initialization
     
     init(model: Season) {
         self.model = model
-        super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
+        self.formatter = DateFormatter()
+        self.formatter.dateFormat = "yyyy-MM-dd"
         
-        //self.tabBarItem.image = model.sigil.image
-        self.title = model.name
+        super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,7 +65,12 @@ class SeasonDetailViewController: UIViewController {
 
     // MARK: - Sync
     func syncModelWithView() {
+        self.seasonNameLabel.text = self.model.name;
+        self.seasonDateLabel.text = self.formatter.string(from: self.model.releaseDate)
+        self.seasonEpisodesLabel.text = "\(self.model.episodes.count) episodes"
+        self.seasonImageView.image = self.model.image
         
+        self.title = model.name
     }
     
     // MARK: - UI

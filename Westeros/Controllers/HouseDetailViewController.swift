@@ -22,9 +22,6 @@ class HouseDetailViewController: UIViewController {
     init(model: House) {
         self.model = model
         super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
-        
-        //self.tabBarItem.image = model.sigil.image
-        self.title = model.name
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,6 +62,7 @@ class HouseDetailViewController: UIViewController {
         self.wordsLabel.text = self.model.words
         
         self.navigationItem.rightBarButtonItems?.first?.isEnabled = self.model.members.count > 0
+        self.title = model.name
     }
     
     // MARK: - UI

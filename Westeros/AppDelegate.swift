@@ -28,13 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // houseListVC.delegate = houseDetailVC
         
         let seasonListVC = SeasonListViewController(model: Repository.local.seasons)
-        let seadonDetailVC = SeasonDetailViewController(model: seasonListVC.lastSelectedSeason())
-        
+        let seasonDetailVC = SeasonDetailViewController(model: seasonListVC.lastSelectedSeason())
+        seasonListVC.delegate = seasonDetailVC
         
         let splitVC = UISplitViewController()
         splitVC.viewControllers = [
             seasonListVC.wrappedInNavigation(),
-            seadonDetailVC.wrappedInNavigation()
+            seasonDetailVC.wrappedInNavigation()
         ]
         
         window?.rootViewController = splitVC
