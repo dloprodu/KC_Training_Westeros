@@ -20,20 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
-        let houses = Repository.local.houses
-        
         // Combinadores
         // UISplitViewControllers (master, detail)
-        let houseListVC = HouseListViewController(model: houses)
-        let houseDetailVC = HouseDetailViewController(model: houseListVC.lastSelectedHouse())
         
-        // Asignamos delegados
-        houseListVC.delegate = houseDetailVC
+        // let houseListVC = HouseListViewController(model: Repository.local.houses)
+        // let houseDetailVC = HouseDetailViewController(model: houseListVC.lastSelectedHouse())
+        // houseListVC.delegate = houseDetailVC
+        
+        let seasonListVC = SeasonListViewController(model: Repository.local.seasons)
+        let seadonDetailVC = SeasonDetailViewController(model: seasonListVC.lastSelectedSeason())
+        
         
         let splitVC = UISplitViewController()
         splitVC.viewControllers = [
-            houseListVC.wrappedInNavigation(),
-            houseDetailVC.wrappedInNavigation()
+            seasonListVC.wrappedInNavigation(),
+            seadonDetailVC.wrappedInNavigation()
         ]
         
         window?.rootViewController = splitVC

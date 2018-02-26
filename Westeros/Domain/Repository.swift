@@ -99,39 +99,39 @@ final class LocalFactory: RepositoryFactory {
             image: #imageLiteral(resourceName: "season-7.jpg"))
         
         season1.add(episodes:
-            Episode(id: 1, title: "Winter Is Coming", summary: loremipum, date: formatter.date(from: "2011-04-17 00:00:00")!, season: season1),
-            Episode(id: 2, title: "The Kingsroad", summary: loremipum, date: formatter.date(from: "2011-04-24 00:00:00")!, season: season1),
-            Episode(id: 3, title: "Lord Snow", summary: loremipum, date: formatter.date(from: "2011-05-01 00:00:00")!, season: season1))
+            Episode(id: 1, title: "Winter Is Coming", summary: loremipum, date: formatter.date(from: "2011-04-17 00:00:00")!, image: #imageLiteral(resourceName: "s1e1.jpg"), season: season1),
+            Episode(id: 2, title: "The Kingsroad", summary: loremipum, date: formatter.date(from: "2011-04-24 00:00:00")!, image: #imageLiteral(resourceName: "s1e2.jpg"), season: season1),
+            Episode(id: 3, title: "Lord Snow", summary: loremipum, date: formatter.date(from: "2011-05-01 00:00:00")!, image: #imageLiteral(resourceName: "s1e3.jpg"), season: season1))
         
         season2.add(episodes:
-            Episode(id: 21, title: "The North Remembers", summary: loremipum, date: formatter.date(from: "2012-04-01 00:00:00")!, season: season2),
-            Episode(id: 22, title: "The Night Lands", summary: loremipum, date: formatter.date(from: "2012-04-08 00:00:00")!, season: season2),
-            Episode(id: 23, title: "What Is Dead May Never Die", summary: loremipum, date: formatter.date(from: "2012-04-15 00:00:00")!, season: season2))
+            Episode(id: 21, title: "The North Remembers", summary: loremipum, date: formatter.date(from: "2012-04-01 00:00:00")!, image: #imageLiteral(resourceName: "s2e1.jpg"), season: season2),
+            Episode(id: 22, title: "The Night Lands", summary: loremipum, date: formatter.date(from: "2012-04-08 00:00:00")!, image: #imageLiteral(resourceName: "s2e2.jpg"), season: season2),
+            Episode(id: 23, title: "What Is Dead May Never Die", summary: loremipum, date: formatter.date(from: "2012-04-15 00:00:00")!, image: #imageLiteral(resourceName: "s2e3.jpg"), season: season2))
         
         season3.add(episodes:
-            Episode(id: 31, title: "Valar Dohaeris", summary: loremipum, date: formatter.date(from: "2013-03-31 00:00:00")!, season: season3),
-            Episode(id: 32, title: "Dark Wings, Dark Words", summary: loremipum, date: formatter.date(from: "013-04-07 00:00:00")!, season: season3),
-            Episode(id: 33, title: "Walk of Punishment", summary: loremipum, date: formatter.date(from: "2013-04-14 00:00:00")!, season: season3))
+            Episode(id: 31, title: "Valar Dohaeris", summary: loremipum, date: formatter.date(from: "2013-03-31 00:00:00")!, image: #imageLiteral(resourceName: "s3e1.jpg"), season: season3),
+            Episode(id: 32, title: "Dark Wings, Dark Words", summary: loremipum, date: formatter.date(from: "013-04-07 00:00:00")!, image: #imageLiteral(resourceName: "s3e2.jpg"), season: season3),
+            Episode(id: 33, title: "Walk of Punishment", summary: loremipum, date: formatter.date(from: "2013-04-14 00:00:00")!, image: #imageLiteral(resourceName: "s3e3.jpg"), season: season3))
         
         season4.add(episodes:
-            Episode(id: 41, title: "Two Swords", summary: loremipum, date: formatter.date(from: "2014-04-06 00:00:00")!, season: season4),
-            Episode(id: 42, title: "The Lion and the Rose", summary: loremipum, date: formatter.date(from: "2014-04-13 00:00:00")!, season: season4),
-            Episode(id: 43, title: "Breaker of Chains", summary: loremipum, date: formatter.date(from: "2014-04-20 00:00:00")!, season: season4))
+            Episode(id: 41, title: "Two Swords", summary: loremipum, date: formatter.date(from: "2014-04-06 00:00:00")!, image: #imageLiteral(resourceName: "s4e1.jpg"), season: season4),
+            Episode(id: 42, title: "The Lion and the Rose", summary: loremipum, date: formatter.date(from: "2014-04-13 00:00:00")!, image: #imageLiteral(resourceName: "s4e2.jpg"), season: season4),
+            Episode(id: 43, title: "Breaker of Chains", summary: loremipum, date: formatter.date(from: "2014-04-20 00:00:00")!, image: #imageLiteral(resourceName: "s4e3.jpg"), season: season4))
         
         season5.add(episodes:
-            Episode(id: 51, title: "The Wars to Come", summary: loremipum, date: formatter.date(from: "2015-04-12 00:00:00")!, season: season5),
-            Episode(id: 52, title: "The House of Black and White", summary: loremipum, date: formatter.date(from: "2015-04-19 00:00:00")!, season: season5),
-            Episode(id: 53, title: "High Sparrow", summary: loremipum, date: formatter.date(from: "2015-04-26 00:00:00")!, season: season5))
+            Episode(id: 51, title: "The Wars to Come", summary: loremipum, date: formatter.date(from: "2015-04-12 00:00:00")!, image: #imageLiteral(resourceName: "s5e1.jpg"), season: season5),
+            Episode(id: 52, title: "The House of Black and White", summary: loremipum, date: formatter.date(from: "2015-04-19 00:00:00")!, image: #imageLiteral(resourceName: "s5e2.jpg"), season: season5),
+            Episode(id: 53, title: "High Sparrow", summary: loremipum, date: formatter.date(from: "2015-04-26 00:00:00")!, image: #imageLiteral(resourceName: "s5e3.jpg"), season: season5))
         
         season6.add(episodes:
-            Episode(id: 61, title: "The Red Woman", summary: loremipum, date: formatter.date(from: "2016-04-24 00:00:00")!, season: season6),
-            Episode(id: 62, title: "Home", summary: loremipum, date: formatter.date(from: "2016-05-01 00:00:00")!, season: season6),
-            Episode(id: 63, title: "Oathbreaker", summary: loremipum, date: formatter.date(from: "2016-05-08 00:00:00")!, season: season6))
+            Episode(id: 61, title: "The Red Woman", summary: loremipum, date: formatter.date(from: "2016-04-24 00:00:00")!, image: #imageLiteral(resourceName: "s6e1.jpg"), season: season6),
+            Episode(id: 62, title: "Home", summary: loremipum, date: formatter.date(from: "2016-05-01 00:00:00")!, image: #imageLiteral(resourceName: "s6e2.jpg"), season: season6),
+            Episode(id: 63, title: "Oathbreaker", summary: loremipum, date: formatter.date(from: "2016-05-08 00:00:00")!, image: #imageLiteral(resourceName: "s6e3.jpg"), season: season6))
         
         season7.add(episodes:
-            Episode(id: 71, title: "Dragonstone", summary: loremipum, date: formatter.date(from: "2017-07-16 00:00:00")!, season: season7),
-            Episode(id: 72, title: "Stormborn", summary: loremipum, date: formatter.date(from: "2017-07-23 00:00:00")!, season: season7),
-            Episode(id: 73, title: "The Queen's Justice", summary: loremipum, date: formatter.date(from: "2017-07-30 00:00:00")!, season: season7))
+            Episode(id: 71, title: "Dragonstone", summary: loremipum, date: formatter.date(from: "2017-07-16 00:00:00")!, image: #imageLiteral(resourceName: "s7e1.jpg"), season: season7),
+            Episode(id: 72, title: "Stormborn", summary: loremipum, date: formatter.date(from: "2017-07-23 00:00:00")!, image: #imageLiteral(resourceName: "s7e2.jpg"), season: season7),
+            Episode(id: 73, title: "The Queen's Justice", summary: loremipum, date: formatter.date(from: "2017-07-30 00:00:00")!, image: #imageLiteral(resourceName: "s7e3.jpg"), season: season7))
         
         _seasons = [season1, season2, season3, season4, season5, season6, season7]
     }

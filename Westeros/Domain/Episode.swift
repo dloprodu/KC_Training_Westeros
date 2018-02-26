@@ -6,6 +6,7 @@
 //  Copyright © 2018 David López Rodriguez. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 final class Episode {
@@ -13,13 +14,15 @@ final class Episode {
     let title: String
     let summary: String
     let releaseDate: Date
+    let image: UIImage
     weak var season: Season?
     
-    init(id: Int, title: String, summary: String, date: Date, season: Season) {
+    init(id: Int, title: String, summary: String, date: Date, image: UIImage, season: Season) {
         self.id = id
         self.title = title
         self.summary = summary
         self.releaseDate = date
+        self.image = image
         self.season = season
     }
 }
