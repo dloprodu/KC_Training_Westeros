@@ -25,8 +25,8 @@ class EpisodeTests: XCTestCase {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         season1 = Season(id: 1, name: "Season 1", date: formatter.date(from: "2011-01-01 00:00:00")!, image: UIImage())
-        episode1 = Episode(id: 1, title: "Episode 1", summary: "", date: formatter.date(from: "2011-01-01 00:00:00")!, season: season1)
-        episode2 = Episode(id: 2, title: "Episode 2", summary: "", date: formatter.date(from: "2011-01-07 00:00:00")!, season: season1)
+        episode1 = Episode(id: 1, title: "Episode 1", summary: "", date: formatter.date(from: "2011-01-01 00:00:00")!, image: UIImage(), season: season1)
+        episode2 = Episode(id: 2, title: "Episode 2", summary: "", date: formatter.date(from: "2011-01-07 00:00:00")!, image: UIImage(), season: season1)
     }
     
     override func tearDown() {
@@ -42,7 +42,7 @@ class EpisodeTests: XCTestCase {
         XCTAssertEqual(episode1, episode1)
         
         // Igualdad
-        let episode = Episode(id: 1, title: "Episode 1", summary: "", date: formatter.date(from: "2011-01-01 00:00:00")!, season: season1)
+        let episode = Episode(id: 1, title: "Episode 1", summary: "", date: formatter.date(from: "2011-01-01 00:00:00")!, image: UIImage(), season: season1)
         XCTAssertEqual(episode1, episode)
         
         // Desigualdasd

@@ -9,7 +9,6 @@
 import UIKit
 
 enum SeasonListViewControllerKeys: String {
-    case SeasonKey
     case SeasonDidChangeNotificationName
     case LastSeason
 }
@@ -69,15 +68,13 @@ class SeasonListViewController: UITableViewController {
         let cellId = "SeasonCell"
         let season = model[indexPath.row]
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-        if (cell == nil) {
-            cell = UITableViewCell(style: .default, reuseIdentifier: cellId)
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
+            ?? UITableViewCell(style: .default, reuseIdentifier: cellId)
         
-        cell?.imageView?.image = season.image
-        cell?.textLabel?.text = season.name
+        cell.imageView?.image = season.image
+        cell.textLabel?.text = season.name
         
-        return cell!
+        return cell
     }
 
     override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -86,58 +83,13 @@ class SeasonListViewController: UITableViewController {
         delegate?.seasonListViewController(self, didSelectSeason: season)
         
         // Mando la misma info a traves de notificaciones
-        let notification = Notification(name: Notification.Name(SeasonListViewControllerKeys.SeasonDidChangeNotificationName.rawValue), object: self, userInfo: [SeasonListViewControllerKeys.SeasonKey.rawValue: season])
+        let notification = Notification(name: Notification.Name(SeasonListViewControllerKeys.SeasonDidChangeNotificationName.rawValue), object: self, userInfo: [SeasonListViewControllerKeys.LastSeason.rawValue: season])
         
         NotificationCenter.default.post(notification)
         
         // Guardar las coordenadas (section, row) de la última casa seleccionada
         saveLastSelectedSeason(at: indexPath.row)
     }
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }
 

@@ -71,7 +71,7 @@ class WikiViewController: UIViewController {
             return
         }
         
-        guard let house = info[HouseListViewControllerKeys.HouseKey.rawValue] as? House else {
+        guard let house = info[HouseListViewControllerKeys.LastHouse.rawValue] as? House else {
             return
         }
         

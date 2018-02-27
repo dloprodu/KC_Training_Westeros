@@ -10,6 +10,30 @@ import UIKit
 
 class EpisodeDetailViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
+    
+    // MARK: - Properties
+    let formatter: DateFormatter
+    var model: Episode
+    
+    // MARK: - Initialization
+    init(model: Episode) {
+        self.model = model
+        self.formatter = DateFormatter()
+        self.formatter.dateFormat = "yyyy-MM-dd"
+        super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +45,43 @@ class EpisodeDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
+        syncModelWithView()
     }
-    */
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
+    // MARK: - Sync
+    func syncModelWithView() {
+        titleLabel.text = model.title
+        imageView.image = model.image
+        releaseDateLabel.text = formatter.string(from: model.releaseDate)
+        summaryLabel.text = model.summary
+        
+        self.title = model.title
+    }
+    
+    // MARK: - UI
+    func setupUI() {
+    }
+}
 
+extension EpisodeDetailViewController : EpisodeListViewControllerDelegate {
+    func episodeListViewController(_ viewController: EpisodeListViewController, didSelectEpisode: Episode) {
+        self.model = didSelectEpisode
+        self.syncModelWithView()
+    }
+    
 }
