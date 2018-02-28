@@ -91,6 +91,8 @@
 		636FED8B204362380097A3C5 /* s5e2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 636FED48204362380097A3C5 /* s5e2.jpg */; };
 		636FED8C204362380097A3C5 /* s5e7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 636FED49204362380097A3C5 /* s5e7.jpg */; };
 		636FED8D204362380097A3C5 /* s3e1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 636FED4A204362380097A3C5 /* s3e1.jpg */; };
+		637849382047640000347505 /* ca-castle-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63784936204763FF00347505 /* ca-castle-icon.png */; };
+		637849392047640000347505 /* ca-film-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 637849372047640000347505 /* ca-film-icon.png */; };
 		637890BE2040C32D006E3732 /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637890BD2040C32D006E3732 /* EpisodeTests.swift */; };
 		637890C02040CFC8006E3732 /* RepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637890BF2040CFC8006E3732 /* RepositoryFactory.swift */; };
 		63813DC5202CE53600898058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63813DC4202CE53600898058 /* AppDelegate.swift */; };
@@ -217,6 +219,8 @@
 		636FED48204362380097A3C5 /* s5e2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s5e2.jpg; sourceTree = "<group>"; };
 		636FED49204362380097A3C5 /* s5e7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s5e7.jpg; sourceTree = "<group>"; };
 		636FED4A204362380097A3C5 /* s3e1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s3e1.jpg; sourceTree = "<group>"; };
+		63784936204763FF00347505 /* ca-castle-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ca-castle-icon.png"; sourceTree = "<group>"; };
+		637849372047640000347505 /* ca-film-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ca-film-icon.png"; sourceTree = "<group>"; };
 		637890BD2040C32D006E3732 /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
 		637890BF2040CFC8006E3732 /* RepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryFactory.swift; sourceTree = "<group>"; };
 		63813DC1202CE53600898058 /* Westeros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Westeros.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,6 +345,8 @@
 		639A09D12032397300C1A4DF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				63784936204763FF00347505 /* ca-castle-icon.png */,
+				637849372047640000347505 /* ca-film-icon.png */,
 				636FED41204362380097A3C5 /* s1e1.jpg */,
 				636FED20204362350097A3C5 /* s1e2.jpg */,
 				636FED29204362360097A3C5 /* s1e3.jpg */,
@@ -538,6 +544,7 @@
 				63ADB309203E1C2600BCD94C /* martell.png in Resources */,
 				6383D95F20362B8E0042281F /* WikiViewController.xib in Resources */,
 				636FED59204362380097A3C5 /* s1e7.jpg in Resources */,
+				637849392047640000347505 /* ca-film-icon.png in Resources */,
 				636FED67204362380097A3C5 /* s5e5.jpg in Resources */,
 				636FED7F204362380097A3C5 /* s4e5.jpg in Resources */,
 				636FED79204362380097A3C5 /* s4e9.jpg in Resources */,
@@ -593,6 +600,7 @@
 				636FED63204362380097A3C5 /* s1e2.jpg in Resources */,
 				636FED56204362380097A3C5 /* s2e5.jpg in Resources */,
 				636FED71204362380097A3C5 /* s6e9.jpg in Resources */,
+				637849382047640000347505 /* ca-castle-icon.png in Resources */,
 				636FED87204362380097A3C5 /* s2e10.jpg in Resources */,
 				636FED6F204362380097A3C5 /* s2e2.jpg in Resources */,
 				636FED4B204362380097A3C5 /* s5e9.jpg in Resources */,

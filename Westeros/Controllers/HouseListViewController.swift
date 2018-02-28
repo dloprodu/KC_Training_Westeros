@@ -30,7 +30,8 @@ class HouseListViewController: UITableViewController {
     init (model: [House]) {
         self.model = model
         super.init(style: .plain)
-        title = "Westeros"
+        title = "Houses"
+        //tabBarItem?.image = #imageLiteral(resourceName: "ca-castle-icon.png")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,11 +42,6 @@ class HouseListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let lastRow = UserDefaults.standard.integer(forKey: HouseListViewControllerKeys.LastHouse.rawValue)
-        let indexPath = IndexPath(item: lastRow, section: 0)
-        
-        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +50,11 @@ class HouseListViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let lastRow = UserDefaults.standard.integer(forKey: HouseListViewControllerKeys.LastHouse.rawValue)
+        let indexPath = IndexPath(item: lastRow, section: 0)
+        
+        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
     }
     
     // MARK: - Table view data source

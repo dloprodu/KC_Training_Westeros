@@ -30,7 +30,8 @@ class SeasonListViewController: UITableViewController {
     init (model: [Season]) {
         self.model = model
         super.init(style: .plain)
-        title = "Westeros"
+        title = "Seasons"
+        //tabBarItem?.image = #imageLiteral(resourceName: "ca-film-icon.png")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,16 +42,20 @@ class SeasonListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let lastRow = UserDefaults.standard.integer(forKey: SeasonListViewControllerKeys.LastSeason.rawValue)
-        let indexPath = IndexPath(item: lastRow, section: 0)
-        
-        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let lastRow = UserDefaults.standard.integer(forKey: SeasonListViewControllerKeys.LastSeason.rawValue)
+        let indexPath = IndexPath(item: lastRow, section: 0)
+        
+        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
     }
 
     // MARK: - Table view data source

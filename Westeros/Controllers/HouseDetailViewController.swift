@@ -92,3 +92,21 @@ extension HouseDetailViewController : HouseListViewControllerDelegate {
     }
     
 }
+
+extension HouseDetailViewController : UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let foregroundDetail = splitViewController?.viewControllers[1] else {
+            return
+        }
+        guard let backgroundDetail = splitViewController?.viewControllers[2] else {
+            return
+        }
+        
+        // update tabBarController delegate
+        tabBarController.delegate = (backgroundDetail as! UINavigationController).viewControllers.first as! SeasonDetailViewController
+        
+        // swapping the views
+        splitViewController?.viewControllers[2] = foregroundDetail
+        splitViewController?.viewControllers[1] = backgroundDetail
+    }
+}
