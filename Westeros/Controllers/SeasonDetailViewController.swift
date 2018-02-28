@@ -29,6 +29,8 @@ class SeasonDetailViewController: UIViewController {
         self.formatter.dateFormat = "yyyy-MM-dd"
         
         super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
+        
+        self.title = "Season Detail"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -69,8 +71,6 @@ class SeasonDetailViewController: UIViewController {
         self.seasonDateLabel.text = self.formatter.string(from: self.model.releaseDate)
         self.seasonEpisodesLabel.text = "\(self.model.episodes.count) episodes"
         self.seasonImageView.image = self.model.image
-        
-        self.title = model.name
     }
     
     // MARK: - UI
