@@ -47,8 +47,10 @@ class EpisodeDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupUI()
+        
         syncModelWithView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(seasonDidChange), name: Notification.Name( SeasonListViewControllerKeys.SeasonDidChangeNotificationName.rawValue ), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +59,8 @@ class EpisodeDetailViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -73,8 +77,9 @@ class EpisodeDetailViewController: UIViewController {
         self.title = model.title
     }
     
-    // MARK: - UI
-    func setupUI() {
+    // MARK: - Selectors
+    @objc func seasonDidChange(notification: Notification) {
+        navigationController?.popToRootViewController(animated: false)
     }
 }
 

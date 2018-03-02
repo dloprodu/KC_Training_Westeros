@@ -78,6 +78,13 @@ class MemberListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let person = model[indexPath.row]
         cell.textLabel?.text = person.fullName
+        cell.accessoryType = .disclosureIndicator
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let member = self.model[indexPath.row]
+        
+        navigationController?.pushViewController(MemberDetailViewController(model: member), animated: true)
     }
 
     // MARK: - Selectors

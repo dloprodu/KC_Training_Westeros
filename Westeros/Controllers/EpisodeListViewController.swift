@@ -40,12 +40,6 @@ class EpisodeListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,7 +65,6 @@ class EpisodeListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return model.count
     }
 
@@ -84,6 +77,7 @@ class EpisodeListViewController: UITableViewController {
         
         cell.imageView?.image = episode.image
         cell.textLabel?.text = episode.title
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
@@ -91,15 +85,14 @@ class EpisodeListViewController: UITableViewController {
     override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = self.model[indexPath.row]
         
+        navigationController?.pushViewController(EpisodeDetailViewController(model: episode), animated: true)
+        
         delegate?.episodeListViewController(self, didSelectEpisode: episode)
         
         // Mando la misma info a traves de notificaciones
         let notification = Notification(name: Notification.Name(EpisodeListViewControllerKeys.EpisodeDidChangeNotificationName.rawValue), object: self, userInfo: [EpisodeListViewControllerKeys.LastEpisode.rawValue: episode])
         
         NotificationCenter.default.post(notification)
-        
-        // Guardar las coordenadas (section, row) de la última casa seleccionada
-        saveLastSelectedEpisode(at: indexPath.row)
     }
     
     // MARK: - Selectors
@@ -115,18 +108,5 @@ class EpisodeListViewController: UITableViewController {
         
         self.model = season.episodes
         self.tableView.reloadData()
-    }
-}
-
-extension EpisodeListViewController {
-    func saveLastSelectedEpisode(at row: Int) {
-        let defaults = UserDefaults.standard
-        defaults.set(row, forKey: EpisodeListViewControllerKeys.LastEpisode.rawValue)
-        defaults.synchronize()
-    }
-    
-    func lastSelectedEpisode() -> Episode {
-        let row = UserDefaults.standard.integer(forKey: EpisodeListViewControllerKeys.LastEpisode.rawValue)
-        return model[row]
     }
 }
