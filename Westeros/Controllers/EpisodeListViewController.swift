@@ -21,7 +21,7 @@ protocol EpisodeListViewControllerDelegate: class {
 class EpisodeListViewController: UITableViewController {
     // MARK: - Properties
     
-    let model: [Episode]
+    var model: [Episode]
     weak var delegate: EpisodeListViewControllerDelegate?
     
     // MARK: - initialization
@@ -52,6 +52,18 @@ class EpisodeListViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(seasonDidChange), name: Notification.Name( SeasonListViewControllerKeys.SeasonDidChangeNotificationName.rawValue ), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,6 +102,20 @@ class EpisodeListViewController: UITableViewController {
         saveLastSelectedEpisode(at: indexPath.row)
     }
     
+    // MARK: - Selectors
+    @objc func seasonDidChange(notification: Notification) {
+        // Extraer el userInfo de la notificación
+        guard let info = notification.userInfo else {
+            return
+        }
+        
+        guard let season = info[SeasonListViewControllerKeys.LastSeason.rawValue] as? Season else {
+            return
+        }
+        
+        self.model = season.episodes
+        self.tableView.reloadData()
+    }
 }
 
 extension EpisodeListViewController {

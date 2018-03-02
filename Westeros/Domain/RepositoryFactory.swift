@@ -24,6 +24,7 @@ protocol RepositoryFactory {
     
     var houses: [House] { get }
     func house(name: String) -> House?
+    func house(name: HouseKey) -> House?
     func houses(filteredBy: FilterHouse) -> [House]
     
     var seasons: [Season] { get }

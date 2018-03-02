@@ -16,7 +16,7 @@ final class Season {
     let name: String
     let releaseDate: Date
     let image: UIImage
-    var _episodes: Episodes
+    private var _episodes: Episodes
     
     init(id: Int, name: String, date: Date, image: UIImage) {
         self.id = id

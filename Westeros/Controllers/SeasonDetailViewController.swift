@@ -75,10 +75,15 @@ class SeasonDetailViewController: UIViewController {
     
     // MARK: - UI
     func setupUI() {
-        //let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
-        //let membersButton = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
+        let episodesButton = UIBarButtonItem(title: "Episodes", style: .plain, target: self, action: #selector(displayEpisodes))
         
-        //self.navigationItem.rightBarButtonItems = [membersButton, wikiButton]
+        self.navigationItem.rightBarButtonItems = [episodesButton]
+    }
+    
+    // MARK: - Actions
+    @objc func displayEpisodes() {
+        let vc = EpisodeListViewController(model: self.model.episodes)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

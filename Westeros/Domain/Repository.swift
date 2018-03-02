@@ -143,7 +143,11 @@ final class LocalFactory: RepositoryFactory {
     func house(name: String) -> House? {
         return houses.filter{ $0.name.uppercased() == name.uppercased() }.first
     }
-
+    
+    func house(name: HouseKey) -> House? {
+        return houses.filter{ $0.name.uppercased() == name.rawValue.uppercased() }.first
+    }
+    
     func houses(filteredBy: FilterHouse) -> [House] {
         return houses.filter(filteredBy)
     }
