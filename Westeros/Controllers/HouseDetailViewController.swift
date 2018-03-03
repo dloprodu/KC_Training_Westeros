@@ -31,6 +31,7 @@ class HouseDetailViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        syncModelWithView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,8 +41,6 @@ class HouseDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupUI()
-        setUpDetailViewController()
-        syncModelWithView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -62,8 +61,8 @@ class HouseDetailViewController: UIViewController {
         self.sigilImageView.image = self.model.sigil.image
         self.wordsLabel.text = self.model.words
         
-        self.navigationItem.rightBarButtonItems?.first?.isEnabled = self.model.members.count > 0
         self.title = model.name
+        self.navigationItem.rightBarButtonItems?.first?.isEnabled = self.model.members.count > 0
     }
     
     // MARK: - UI

@@ -24,6 +24,8 @@ final class Episode {
         self.releaseDate = date
         self.image = image
         self.season = season
+        
+        // self.season?.add(episode: self)
     }
 }
 

@@ -74,7 +74,7 @@ extension WesterosMenuViewController : UITabBarControllerDelegate {
 extension WesterosMenuViewController : UISplitViewControllerDelegate {
     
     func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode) {
-        self.setUpDetailViewController()
+        setUpDetailForSplitViewController()
     }
     
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {

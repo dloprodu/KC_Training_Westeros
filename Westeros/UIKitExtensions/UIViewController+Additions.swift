@@ -14,9 +14,13 @@ extension UIViewController {
         return UINavigationController(rootViewController: self)
     }
     
-    func setUpDetailViewController() {
-        /*
+    func setUpDetailForSplitViewController() {
+        /**
         guard let svc = self.splitViewController else {
+            return
+        }
+        
+        if (svc.isCollapsed || svc.viewControllers.count < 2) {
             return
         }
         
@@ -37,7 +41,7 @@ extension UIViewController {
                 detailVC.navigationItem.rightBarButtonItems = [UIBarButtonItem]()
             }
             
-            detailVC.navigationItem.rightBarButtonItems?.append(svc.displayModeButtonItem)
+            detailVC.navigationItem.rightBarButtonItems?.insert(svc.displayModeButtonItem, at: 0)
             break
         // The primary view controller is layered on top of the secondary
         // view controller, leaving the secondary view controller partially visible.

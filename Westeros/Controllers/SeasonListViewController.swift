@@ -23,14 +23,17 @@ class SeasonListViewController: UITableViewController {
     // MARK: - Properties
     
     let model: [Season]
+    let formatter: DateFormatter
     weak var delegate: SeasonListViewControllerDelegate?
     
     // MARK: - initialization
     
     init (model: [Season]) {
         self.model = model
+        self.formatter = DateFormatter()
         super.init(style: .plain)
         title = "Seasons"
+        formatter.dateFormat = "yyyy-MM-dd"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -71,10 +74,11 @@ class SeasonListViewController: UITableViewController {
         let season = model[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-            ?? UITableViewCell(style: .default, reuseIdentifier: cellId)
+            ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         
         cell.imageView?.image = season.image
         cell.textLabel?.text = season.name
+        cell.detailTextLabel?.text = formatter.string(from: season.releaseDate)
         
         return cell
     }

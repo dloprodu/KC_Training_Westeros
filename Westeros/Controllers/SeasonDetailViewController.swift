@@ -41,6 +41,7 @@ class SeasonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        syncModelWithView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,8 +51,6 @@ class SeasonDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupUI()
-        syncModelWithView()
-        setUpDetailViewController()
     }
     
     override func viewDidAppear(_ animated: Bool) {

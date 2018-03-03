@@ -19,20 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         window?.makeKeyAndVisible()
-        
-        // Combinadores
-        // UISplitViewControllers (master, detail)
-        
+                
         let menuVC = WesterosMenuViewController()
 
         let splitVC = UISplitViewController()
         splitVC.delegate = menuVC
-        
         splitVC.viewControllers = [
             menuVC,
             menuVC.seasonDetailNavigation
         ]
-        
+        splitVC.preferredDisplayMode = .allVisible
         window?.rootViewController = splitVC
         
         return true

@@ -37,9 +37,7 @@ class MemberDetailViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        setUpDetailViewController()
-        
+                
         NotificationCenter.default.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name( HouseListViewControllerKeys.HouseDidChangeNotificationName.rawValue ), object: nil)
     }
     
