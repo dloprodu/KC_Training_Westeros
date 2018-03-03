@@ -11,7 +11,7 @@ import Foundation
 final class Person {
     let id: Int
     let name: String
-    let house: House
+    weak var house: House?
     
     private let _alias: String?
     var alias: String {
@@ -28,6 +28,10 @@ final class Person {
 
 extension Person {
     var fullName: String {
+        guard let house = house else {
+            return "\(name)"
+        }
+        
         return "\(name) \(house.name)"
     }
 }

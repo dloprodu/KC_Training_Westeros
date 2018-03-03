@@ -38,6 +38,8 @@ class MemberDetailViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setUpDetailViewController()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name( HouseListViewControllerKeys.HouseDidChangeNotificationName.rawValue ), object: nil)
     }
     
@@ -77,7 +79,6 @@ class MemberDetailViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)
             ?? UITableViewCell(style: .value2, reuseIdentifier: cellId)
         
-        
         switch indexPath.section {
         case 0:
             switch indexPath.row {
@@ -93,7 +94,7 @@ class MemberDetailViewController: UITableViewController {
             }
         default:
             cell.textLabel?.text = "House name"
-            cell.detailTextLabel?.text = model.house.name
+            cell.detailTextLabel?.text = model.house?.name
         }
         
         return cell

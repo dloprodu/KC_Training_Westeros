@@ -31,7 +31,6 @@ class HouseListViewController: UITableViewController {
         self.model = model
         super.init(style: .plain)
         title = "Houses"
-        //tabBarItem?.image = #imageLiteral(resourceName: "ca-castle-icon.png")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,11 +83,13 @@ class HouseListViewController: UITableViewController {
 
     override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
         let house = self.model[indexPath.row]
+        let collapsed = splitViewController?.isCollapsed ?? true
         
-        //let houseVC = HouseDetailViewController(model: house)
-        //self.navigationController?.pushViewController(houseVC, animated: true)
-        
-        delegate?.houseListViewController(self, didSelectHouse: house)
+        if collapsed {
+            self.navigationController?.pushViewController(HouseDetailViewController(model: house), animated: true)
+        } else {
+            delegate?.houseListViewController(self, didSelectHouse: house)
+        }
         
         // Mando la misma info a traves de notificaciones
         let notification = Notification(name: Notification.Name(HouseListViewControllerKeys.HouseDidChangeNotificationName.rawValue), object: self, userInfo: [HouseListViewControllerKeys.LastHouse.rawValue: house])
@@ -98,7 +99,6 @@ class HouseListViewController: UITableViewController {
         // Guardar las coordenadas (section, row) de la última casa seleccionada
         saveLastSelectedHouse(at: indexPath.row)
     }
-    
 }
 
 extension HouseListViewController {

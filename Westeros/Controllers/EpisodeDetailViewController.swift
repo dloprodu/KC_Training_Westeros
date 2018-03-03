@@ -48,6 +48,7 @@ class EpisodeDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setUpDetailViewController()
         syncModelWithView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(seasonDidChange), name: Notification.Name( SeasonListViewControllerKeys.SeasonDidChangeNotificationName.rawValue ), object: nil)

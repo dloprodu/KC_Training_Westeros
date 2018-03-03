@@ -51,6 +51,7 @@ class SeasonDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         setupUI()
         syncModelWithView()
+        setUpDetailViewController()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,22 +95,4 @@ extension SeasonDetailViewController : SeasonListViewControllerDelegate {
         self.syncModelWithView()
     }
     
-}
-
-extension SeasonDetailViewController : UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let foregroundDetail = splitViewController?.viewControllers[1] else {
-            return
-        }
-        guard let backgroundDetail = splitViewController?.viewControllers[2] else {
-            return
-        }
-        
-        // update tabBarController delegate
-        tabBarController.delegate = (backgroundDetail as! UINavigationController).viewControllers.first as! HouseDetailViewController
-        
-        // swapping the views
-        splitViewController?.viewControllers[2] = foregroundDetail
-        splitViewController?.viewControllers[1] = backgroundDetail
-    }
 }

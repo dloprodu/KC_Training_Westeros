@@ -11,6 +11,7 @@
 		6310EC06204A017600A8182C /* MemberDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6310EC04204A017600A8182C /* MemberDetailViewController.xib */; };
 		631E34E8203B69F100581244 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E34E6203B69F100581244 /* MemberListViewController.swift */; };
 		631E34E9203B69F100581244 /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631E34E7203B69F100581244 /* MemberListViewController.xib */; };
+		636CD6D2204B2C8C002E812E /* WesterosMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636CD6D1204B2C8C002E812E /* WesterosMenuViewController.swift */; };
 		636FECEC204359DF0097A3C5 /* SeasonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636FECEA204359DF0097A3C5 /* SeasonListViewController.swift */; };
 		636FECED204359DF0097A3C5 /* SeasonListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636FECEB204359DF0097A3C5 /* SeasonListViewController.xib */; };
 		636FECF020435A060097A3C5 /* SeasonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636FECEE20435A060097A3C5 /* SeasonDetailViewController.swift */; };
@@ -141,6 +142,7 @@
 		6310EC04204A017600A8182C /* MemberDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberDetailViewController.xib; sourceTree = "<group>"; };
 		631E34E6203B69F100581244 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
 		631E34E7203B69F100581244 /* MemberListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
+		636CD6D1204B2C8C002E812E /* WesterosMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WesterosMenuViewController.swift; sourceTree = "<group>"; };
 		636FECEA204359DF0097A3C5 /* SeasonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonListViewController.swift; sourceTree = "<group>"; };
 		636FECEB204359DF0097A3C5 /* SeasonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonListViewController.xib; sourceTree = "<group>"; };
 		636FECEE20435A060097A3C5 /* SeasonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetailViewController.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				636FECF720435A4D0097A3C5 /* EpisodeListViewController.xib */,
 				6310EC03204A017600A8182C /* MemberDetailViewController.swift */,
 				6310EC04204A017600A8182C /* MemberDetailViewController.xib */,
+				636CD6D1204B2C8C002E812E /* WesterosMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				63813DC5202CE53600898058 /* AppDelegate.swift in Sources */,
 				6383D962203645330042281F /* HouseListViewController.swift in Sources */,
 				637890C02040CFC8006E3732 /* RepositoryFactory.swift in Sources */,
+				636CD6D2204B2C8C002E812E /* WesterosMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

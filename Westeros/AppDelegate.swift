@@ -23,28 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Combinadores
         // UISplitViewControllers (master, detail)
         
-        let houseListVC = HouseListViewController(model: Repository.local.houses)
-        let houseDetailVC = HouseDetailViewController(model: houseListVC.lastSelectedHouse())
-        
-        let seasonListVC = SeasonListViewController(model: Repository.local.seasons)
-        let seasonDetailVC = SeasonDetailViewController(model: seasonListVC.lastSelectedSeason())
-        
-        let tabBarVC = UITabBarController()
-        tabBarVC.viewControllers = [
-            seasonListVC.wrappedInNavigation(),
-            houseListVC.wrappedInNavigation()
-        ]
-        
-        // Set delegates
-        seasonListVC.delegate = seasonDetailVC
-        houseListVC.delegate = houseDetailVC
-        tabBarVC.delegate = seasonDetailVC
-        
+        let menuVC = WesterosMenuViewController()
+
         let splitVC = UISplitViewController()
+        splitVC.delegate = menuVC
+        
         splitVC.viewControllers = [
-            tabBarVC,
-            seasonDetailVC.wrappedInNavigation(),
-            houseDetailVC.wrappedInNavigation()
+            menuVC,
+            menuVC.seasonDetailNavigation
         ]
         
         window?.rootViewController = splitVC

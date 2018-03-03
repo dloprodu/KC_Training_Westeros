@@ -31,7 +31,6 @@ class SeasonListViewController: UITableViewController {
         self.model = model
         super.init(style: .plain)
         title = "Seasons"
-        //tabBarItem?.image = #imageLiteral(resourceName: "ca-film-icon.png")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,7 +45,6 @@ class SeasonListViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +55,7 @@ class SeasonListViewController: UITableViewController {
         
         self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,7 +63,6 @@ class SeasonListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.model.count
     }
 
@@ -84,8 +81,13 @@ class SeasonListViewController: UITableViewController {
 
     override func tableView(_ tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
         let season = self.model[indexPath.row]
+        let collapsed = splitViewController?.isCollapsed ?? true
         
-        delegate?.seasonListViewController(self, didSelectSeason: season)
+        if collapsed {
+            self.navigationController?.pushViewController(SeasonDetailViewController(model: season), animated: true)
+        } else {
+            delegate?.seasonListViewController(self, didSelectSeason: season)
+        }
         
         // Mando la misma info a traves de notificaciones
         let notification = Notification(name: Notification.Name(SeasonListViewControllerKeys.SeasonDidChangeNotificationName.rawValue), object: self, userInfo: [SeasonListViewControllerKeys.LastSeason.rawValue: season])
