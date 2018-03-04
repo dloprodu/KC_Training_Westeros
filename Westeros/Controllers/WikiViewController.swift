@@ -32,12 +32,13 @@ class WikiViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupUI();
-        self.syncModelWithView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setupUI();
+        syncModelWithView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name( HouseListViewControllerKeys.HouseDidChangeNotificationName.rawValue ), object: nil)
     }
@@ -54,6 +55,11 @@ class WikiViewController: UIViewController {
     
     // MARK: - UI
     func setupUI() {
+        if (activityView == nil) {
+            // The view, as delegate, tries to update model but it isn't ready because it've not been shown. It'll be updated when the view will appear.
+            return
+        }
+        
         self.activityView.hidesWhenStopped = true
         self.activityView.startAnimating()
         self.webView.navigationDelegate = self

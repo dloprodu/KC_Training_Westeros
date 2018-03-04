@@ -36,7 +36,6 @@ class EpisodeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        syncModelWithView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +44,8 @@ class EpisodeDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        syncModelWithView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(seasonDidChange), name: Notification.Name( SeasonListViewControllerKeys.SeasonDidChangeNotificationName.rawValue ), object: nil)
     }
@@ -65,6 +66,11 @@ class EpisodeDetailViewController: UIViewController {
     
     // MARK: - Sync
     func syncModelWithView() {
+        if (titleLabel == nil) {
+            // The view, as delegate, tries to update model but it isn't ready because it've not been shown. It'll be updated when the view will appear.
+            return
+        }
+        
         titleLabel.text = model.title
         imageView.image = model.image
         releaseDateLabel.text = formatter.string(from: model.releaseDate)

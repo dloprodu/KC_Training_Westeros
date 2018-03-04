@@ -31,7 +31,6 @@ class HouseDetailViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        syncModelWithView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +39,9 @@ class HouseDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         setupUI()
+        syncModelWithView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +58,11 @@ class HouseDetailViewController: UIViewController {
     
     // MARK: - Sync
     func syncModelWithView() {
+        if self.houseNameLabel == nil {
+            // The view, as delegate, tries to update model but it isn't ready because it've not been shown. It'll be updated when the view will appear.
+            return
+        }
+        
         self.houseNameLabel.text = "House \(self.model.name)"
         self.sigilImageView.image = self.model.sigil.image
         self.wordsLabel.text = self.model.words

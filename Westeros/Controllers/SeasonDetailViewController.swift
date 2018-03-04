@@ -41,7 +41,6 @@ class SeasonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        syncModelWithView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +49,9 @@ class SeasonDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         setupUI()
+        syncModelWithView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,6 +68,11 @@ class SeasonDetailViewController: UIViewController {
 
     // MARK: - Sync
     func syncModelWithView() {
+        if self.seasonNameLabel == nil {
+            // The view, as delegate, tries to update model but it isn't ready because it've not been shown. It'll be updated when the view will appear.
+            return
+        }
+        
         self.seasonNameLabel.text = self.model.name;
         self.seasonDateLabel.text = self.formatter.string(from: self.model.releaseDate)
         self.seasonEpisodesLabel.text = "\(self.model.episodes.count) episodes"
