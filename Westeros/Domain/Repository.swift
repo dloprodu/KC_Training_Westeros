@@ -153,7 +153,7 @@ final class LocalFactory: RepositoryFactory {
     }
     
     var seasons: [Season] {
-        return _seasons;
+        return _seasons.sorted();
     }
     
     func season(name: String) -> Season? {
